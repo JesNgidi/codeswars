@@ -1,0 +1,14 @@
+function simple_assembler(program) {
+  let obj = {};
+  for(let i = 0; i < program.length; i++) {
+    let [order, vari, opt] = program[i].split(" ");
+    if('mov' === order) {
+      if(isNaN(opt)) obj[vari] = obj[opt];
+      else obj[vari] = parseInt(opt);
+    }
+    else if('inc' === order) obj[vari] = ++obj[vari];
+    else if('dec' === order) obj[vari] = --obj[vari];
+    else if('jnz' === order && obj[vari] !== 0)i = i + parseInt(opt) - 1; 
+  };
+  return obj;
+}
