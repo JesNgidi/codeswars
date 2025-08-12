@@ -1,0 +1,6 @@
+function workOnStrings(a,b){
+  let cc=x=>x==x.toLowerCase()?x.toUpperCase():x.toLowerCase(), arra=a.split(''), arrb=b.split(''), r, res;
+  res =  arra.map(x=>{r=new RegExp(x,'gi'); return (b.match(r)||[]).length%2?cc(x):x}).join('');
+  res += arrb.map(x=>{r=new RegExp(x,'gi'); return (a.match(r)||[]).length%2?cc(x):x}).join('');
+  return res;
+}
