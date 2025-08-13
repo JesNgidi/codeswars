@@ -1,0 +1,18 @@
+public class ProdFib { 
+	
+	public static long[] productFib(long prod) {
+    
+		long low = 0; long high = 1;
+    long[] ans = new long[3];
+    while(low*high <= prod) {
+      if(low * high == prod) {
+        ans[0] = low; ans[1] = high; ans[2] = 1;
+        return ans;
+      }
+      high += low;
+      low = high - low;
+    }
+    ans[0] = low; ans[1] = high; ans[2] = 0;
+		return ans;
+   }
+}
