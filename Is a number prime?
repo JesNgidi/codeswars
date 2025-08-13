@@ -1,0 +1,69 @@
+public class Prime {
+
+  public static void main(String[] args) {
+    System.out.println(isPrime(1));
+    System.out.println(isPrime(2));
+    System.out.println(isPrime(3));
+    System.out.println(isPrime(5));
+    System.out.println(isPrime(100));
+    System.out.println(isPrime(20));
+    System.out.println(isPrime(5099));
+  }
+
+  static boolean isPrime(int num) {
+    if (num < 2) {
+      return false;
+    } else {
+      int nSquared = (int)Math.sqrt(num) + 1;
+      for (int i = 2; i < nSquared; i++){
+        if (num % i == 0){
+          return false;
+        }
+      }
+    }
+    return true;
+
+     }
+}
+5 years agoRefactorDiscuss
+4 kyu
+Strip Comments
+JavaScript:
+function solution(input, markers){
+  var comments = input.split('\n');
+  for (var i in markers) {
+    for (var j in comments) {
+      var line = null;
+      var idx = comments[j].indexOf(markers[i]);
+      if (idx >= 0) {
+        comments[j] = comments[j].substring(0, idx).trim();
+      } 
+    }
+  }
+  return comments.join('\n');
+}
+5 years agoRefactorDiscuss
+6 kyu
+Roman Numerals Encoder
+Java:
+import java.util.*;
+
+
+public class Conversion {
+
+    private int[] values = { 1000, 900, 800, 500, 400, 100, 90, 80, 50, 40, 10, 9, 8, 5, 4, 1 };
+    private String[] symbols = { "M", "CM", "DCCC", "D", "CD", "C", "XC", "LXXX", "L", "XL", "X", "IX", "VIII", "V", "IV", "I" };
+
+    public String solution(int n) {
+        final StringBuilder result = new StringBuilder();
+        for (int i = 0; i < values.length; i++) {
+            final int value = values[i];
+            while (n >= value) {
+                n -= value;
+                result.append(symbols[i]);
+            }
+        }
+        return result.toString();
+    }
+
+}
